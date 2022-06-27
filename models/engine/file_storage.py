@@ -11,7 +11,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[f"{obj.__class__.name}.id"] = obj
+        self.__objects[f"{obj.__class__.__name__}.id"] = obj
 
     def save(self):
         my_json = dumps(self.__dict__)
