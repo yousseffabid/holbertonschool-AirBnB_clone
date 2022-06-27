@@ -1,5 +1,4 @@
-from imp import reload
-from engine import file_storage
+from models.engine.file_storage import FileStorage
 
-storage = file_storage()
-reload(storage)
+storage = FileStorage()
+storage.reload()
