@@ -136,7 +136,18 @@ class HBNBCommand(cmd.Cmd):
             elif len(args) == 3:
                 print("** value missing **")
                 return
-            setattr(myobjects[f'{args[0]}.{args[1]}'], args[2], args[3])
+            if args[3].isdigit():
+                value = int(args[3])
+            else:
+                try:
+                    value = float(args[3])
+                except (ValueError, NameError):
+                    if args[3][0] == '"' and args[3][-1] == '"':
+                        value = args[3][1:len(args[3]) - 1]
+                    else:
+                        value = args[3]
+
+            setattr(myobjects[f'{args[0]}.{args[1]}'], args[2], value)
 
             myobjects[f'{args[0]}.{args[1]}'].save()
 
