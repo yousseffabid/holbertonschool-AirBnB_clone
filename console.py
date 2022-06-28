@@ -1,48 +1,29 @@
 #!/usr/bin/python3
 
-import cmd, sys
+import cmd
+import sys
 from models.base_model import BaseModel
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-
+    intro = '-Welcome to the HBNB CLI Interface-\n'
     prompt = '(hbnb) '
     ruler = "-"
 
-    def do_EOF(self, line):
-        return True
+    def do_EOF(self, arg):
+        'Exits the HBNB console'
+        exit("")
 
-    def do_quit(self, line):
-        return True
+    def do_quit(self, arg):
+        'Exits the HBNB console'
+        sys.exit("Thanks for using Hbnb Console")
 
     def emptyline(self):
         pass
 
-    def help_quit(self):
-        print('Quit command to exit the program')
-
-    def help_EOF(self):
-        print('Quit command to exit the program')
-
-    def help_create(self):
-        print('Creates a new instance of BaseModel.')
-
-    def help_show(self):
-        print('Prints the string representation of an instance based \
-              on the class name and id')
-
-    def help_destroy(self):
-        print(' Deletes an instance based on the class name and id')
-
-    def help_all(self):
-        print(': Prints all string representation\
-              of all instances based or not on the class name.')
-
-    def help_update(self):
-        print('Updates an instance based on the class name and id')
-
     def do_create(self, line):
+        'Creates a new instance of BaseModel.'
         args = line.split(' ')
 
         if len(args[0]) == 0:
@@ -59,6 +40,8 @@ class HBNBCommand(cmd.Cmd):
             print(myobj.id)
 
     def do_show(self, line):
+        """Prints the string representation of an instance based \
+ on the class name and id"""
         args = line.split(' ')
 
         if len(args[0]) == 0:
@@ -85,6 +68,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, line):
+        'Deletes an instance based on the class name and id'
         args = line.split(' ')
 
         if len(args[0]) == 0:
@@ -112,6 +96,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, line):
+        """Prints all string representation of\
+ all instances based or not on the class name. """
         args = line.split(' ')
 
         if len(args[0]) == 0 or args[0] == 'BaseModel':
@@ -126,6 +112,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, line):
+        'Updates an instance based on the class name and id'
         args = line.split(' ')
 
         if len(args[0]) == 0:
