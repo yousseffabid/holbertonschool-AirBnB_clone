@@ -3,8 +3,13 @@
 import cmd
 import sys
 from models.base_model import BaseModel
-from models import storage
+from models import storage, globalClasses
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -31,11 +36,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        elif len(args[0]) >= 1 and args[0] not in ('BaseModel', 'User'):
+        elif len(args[0]) >= 1 and args[0] not in globalClasses:
             print("** class doesn't exist **")
             return
 
-        elif args[0] in ('BaseModel', 'User'):
+        elif args[0] in globalClasses:
             myobj = eval(args[0])()
             myobj.save()
             print(myobj.id)
@@ -49,11 +54,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        elif len(args) >= 1 and args[0] not in ('BaseModel', 'User'):
+        elif len(args) >= 1 and args[0] not in globalClasses:
             print("** class doesn't exist **")
             return
 
-        elif len(args) == 1 and args[0] in ('BaseModel', 'User'):
+        elif len(args) == 1 and args[0] in globalClasses:
             print("** instance id missing **")
             return
 
@@ -76,11 +81,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        elif len(args) >= 1 and args[0] not in ('BaseModel', 'User'):
+        elif len(args) >= 1 and args[0] not in globalClasses:
             print("** class doesn't exist **")
             return
 
-        elif len(args) == 1 and args[0] in ('BaseModel', 'User'):
+        elif len(args) == 1 and args[0] in globalClasses:
             print("** instance id missing **")
             return
 
@@ -101,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
  all instances based or not on the class name. """
         args = line.split(' ')
 
-        if len(args[0]) == 0 or args[0] in ('BaseModel', 'User'):
+        if len(args[0]) == 0 or args[0] in globalClasses:
             storage.reload()
             myobjects = storage.all()
             list_obj = []
@@ -119,10 +124,10 @@ class HBNBCommand(cmd.Cmd):
         if len(args[0]) == 0:
             print("** class name missing **")
             return
-        elif len(args) >= 1 and args[0] not in ('BaseModel', 'User'):
+        elif len(args) >= 1 and args[0] not in globalClasses:
             print("** class doesn't exist **")
             return
-        elif len(args) == 1 and args[0] in ('BaseModel', 'User'):
+        elif len(args) == 1 and args[0] in globalClasses:
             print("** instance id missing **")
             return
 
