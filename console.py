@@ -149,8 +149,19 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     value = float(args[3])
                 except (ValueError, NameError):
+
                     if args[3][0] == '"' and args[3][-1] == '"':
                         value = args[3][1:len(args[3]) - 1]
+
+                    elif len(args) == 5 and args[3][0] == '"'\
+                            and args[4] == '"':
+                        value = args[3][1:len(args[3])] + ' '
+
+                    elif len(args) == 5 and args[3][0] == '"'\
+                            and args[4][-1] == '"':
+                        value = args[3][1:len(args[3])] + ' '\
+                                + args[4][0:len(args[4]) - 1]
+
                     else:
                         value = args[3]
 
