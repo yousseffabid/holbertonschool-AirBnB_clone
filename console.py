@@ -10,6 +10,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from datetime import datetime
 
 
 class HBNBCommand(cmd.Cmd):
@@ -154,7 +155,8 @@ class HBNBCommand(cmd.Cmd):
                         value = args[3]
 
             setattr(myobjects[f'{args[0]}.{args[1]}'], args[2], value)
-
+            setattr(myobjects[f'{args[0]}.{args[1]}'],
+                    'updated_at', datetime.now())
             myobjects[f'{args[0]}.{args[1]}'].save()
 
         else:
