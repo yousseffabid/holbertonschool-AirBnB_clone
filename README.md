@@ -2,7 +2,7 @@
 An Airbnb clone
 ![AIRBNB](assets/airbnb.png)
 
-## Description
+## ***Description***
 HolbertonBnB is a complete RESTful web application, integrating file and database (MySQL) storage in a back-end API with front-end interfacing in a clone of AirBnB. The front-end is designed using HTML5/CSS3 and is served using Python Flask.
 
 ![an image of the project architecture](assets/console.png)
@@ -116,7 +116,7 @@ Updates a class instance based on a given id with a given key/value attribute pa
 [BaseModel] (49804e1a-c69b-467b-8c89-2bb3fae1e332) {'id': '49804e1a-c69b-467b-8c89-2bb3fae1e332', 'created_at': datetime.datetime(2022, 6, 30, 13, 51, 43, 142791), 'updated_at': datetime.datetime(2022, 6, 30, 14, 32, 34, 845642), 'NAME': 'Jack Smith'}
 ```
 
-## Testing
+## ***Testing***
 Unittests for the HolbertonBnB project are defined in the tests folder. To run the entire test suite simultaneously, execute the following command:
 ```
 $ python3 unittest -m discover tests
@@ -126,6 +126,6 @@ Also, you can specify a single test file to run at a time:
 $ python3 unittest -m tests/test_base_model.py
 ```
 
-## Authors
+## ***Authors***
 Youssef Abid <[Yousseffabid](https://github.com/yousseffabid)>
 Youssef Jallouli <[Youssef J](https://github.com/YoussefJell)>
