@@ -1,11 +1,11 @@
 # HolbertonBnB
 An Airbnb clone
-![AIRBNB](https://github.com/YoussefJell/holbertonschool-AirBnB_clone/tree/dev/assets/airbnb.png)
+![AIRBNB](assets/airbnb.png)
 
 ## Description
 HolbertonBnB is a complete RESTful web application, integrating file and database (MySQL) storage in a back-end API with front-end interfacing in a clone of AirBnB. The front-end is designed using HTML5/CSS3 and is served using Python Flask.
 
-![an image of the project architecture](https://github.com/YoussefJell/holbertonschool-AirBnB_clone/tree/dev/assets/console.png)
+![an image of the project architecture](assets/console.png)
 
 ## Classes
 
@@ -127,5 +127,5 @@ $ python3 unittest -m tests/test_base_model.py
 ```
 
 ## Authors
-Youssef Abid [<Yousseffabid>](https://github.com/yousseffabid)
-Youssef Jallouli [<Youssef J>](https://github.com/YoussefJell)
+Youssef Abid <[Yousseffabid](https://github.com/yousseffabid)>
+Youssef Jallouli <[Youssef J](https://github.com/YoussefJell)>
