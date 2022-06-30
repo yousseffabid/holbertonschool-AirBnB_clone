@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Console Module"""
 import cmd
 import sys
 from models.base_model import BaseModel
@@ -14,6 +14,7 @@ from datetime import datetime
 
 
 class HBNBCommand(cmd.Cmd):
+    """console that contains the entry point of the command interpreter"""
     intro = '-Welcome to the HBNB CLI Interface-\n'
     prompt = '(hbnb) '
     ruler = "="
@@ -27,6 +28,7 @@ class HBNBCommand(cmd.Cmd):
         sys.exit("Thanks for using Hbnb Console")
 
     def emptyline(self):
+        """What happens if you put an empty line (Enter)"""
         pass
 
     def do_create(self, line):
@@ -160,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
                     elif len(args) == 5 and args[3][0] == '"'\
                             and args[4][-1] == '"':
                         value = args[3][1:len(args[3])] + ' '\
-                                + args[4][0:len(args[4]) - 1]
+                            + args[4][0:len(args[4]) - 1]
 
                     else:
                         value = args[3]

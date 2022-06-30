@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""FileStorage Module"""
 from json import dumps, loads
 from os.path import exists
 from models.base_model import BaseModel
@@ -11,17 +12,22 @@ from models.review import Review
 
 
 class FileStorage:
-
+    """class FileStorage that
+    serializes instances to a JSON file and
+    deserializes JSON file to instances"""
     __file_path = "file.json"
     __objects = dict()
 
     def all(self):
+        """returns the dictionary __objects"""
         return self.__objects
 
     def new(self, obj):
+        """sets in __objects the obj with key <obj class name>.id"""
         self.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
 
     def save(self):
+        """serializes __objects to the JSON file (path: __file_path)"""
         my_json = dict()
         for key, value in self.__objects.items():
             my_json[key] = value.to_dict()
@@ -29,6 +35,9 @@ class FileStorage:
             my_file.write(dumps(my_json))
 
     def reload(self):
+        """deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists ; otherwise, do nothing.
+        If the file doesn't exist, no exception should be raised)"""
         if exists(self.__file_path):
             with open(self.__file_path, mode='r', encoding='utf-8') as my_file:
                 my_json = loads(my_file.read())
