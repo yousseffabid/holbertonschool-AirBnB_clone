@@ -24,7 +24,7 @@ There are two abstracted storage engines that help in saving classes information
 ### File Storage
 In `FileStorage` mode, every time the backend is initialized, HolbertonBnB instantiates an instance of `FileStorage` called `storage`. The storage object is loaded/re-loaded from any class instances stored in the JSON file `file.json`. As class instances are created, updated, or deleted, the `storage` object is used to save changes in the `file.json`.
 
-## Console
+## ***Console***
 The Console is a command line interpreter that permits management of the backend of HolbertonBnB.
 It allows the creation, update and deletion of instances that are reloaded from storage.
 
