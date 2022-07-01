@@ -111,7 +111,10 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args[0]) == 0 or args[0] in globalClasses:
             storage.reload()
-            myobjects = storage.all()
+            if args[0] in globalClasses:
+                myobjects = storage.all(args[0])
+            else:
+                myobjects = storage.all()
             list_obj = []
             for value in myobjects.values():
                 list_obj.append(str(value))
@@ -175,6 +178,38 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
             return
+
+    def clean_args(self, my_list):
+
+        my_class = my_list[0]
+        my_command = my_list[1][:my_list[1].find('(')]
+        
+        rest_of_args = my_list[1][my_list[1].find('(')+1:my_list[1].find(')')]
+        if len(rest_of_args) > 0:
+            args = rest_of_args.replace(',', '')
+            args = args.replace('"', '')
+        
+            return my_class + ' ' + args
+        else:
+            return my_class
+
+    def default(self, line):
+        args = line.split('.')
+        if len(line) >= 2:
+            if args[1][:4] == "show":
+                self.do_show(self.clean_args(args))
+
+            elif args[1][:7] == "destroy":
+                self.do_destroy(self.clean_args(args))
+
+            elif args[1] == "all()":
+                self.do_all(args[0])
+
+            elif args[1][:6] == "update":
+                self.do_update(self.clean_args(args))
+
+        else:
+            cmd.Cmd.default(self, line)
 
 
 if __name__ == '__main__':
