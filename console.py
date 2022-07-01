@@ -180,10 +180,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def clean_args(self, my_list):
-
+        """remove unecessary chars"""
         my_class = my_list[0]
-        my_command = my_list[1][:my_list[1].find('(')]
-        
         rest_of_args = my_list[1][my_list[1].find('(')+1:my_list[1].find(')')]
         if len(rest_of_args) > 0:
             args = rest_of_args.replace(',', '')
@@ -194,6 +192,8 @@ class HBNBCommand(cmd.Cmd):
             return my_class
 
     def default(self, line):
+        """Method called on an input line when the\
+                command prefix is not recognized"""
         args = line.split('.')
         if len(line) >= 2:
             if args[1][:4] == "show":
