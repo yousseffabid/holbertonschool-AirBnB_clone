@@ -23,7 +23,7 @@ class Test_User(unittest.TestCase):
         self.assertTrue(hasattr(p, "max_guest"))
         self.assertTrue(hasattr(p, "price_by_night"))
         self.assertTrue(hasattr(p, "latitude"))
-        self.assertTrue(hasattr(p, "longitude")) 
+        self.assertTrue(hasattr(p, "longitude"))
 
     def test_str(self):
         """test the str output"""
