@@ -4,6 +4,7 @@ import cmd
 import sys
 from models.base_model import BaseModel
 from models import storage, globalClasses
+from models.engine.file_storage import FileStorage
 from models.user import User
 from models.state import State
 from models.city import City
@@ -183,19 +184,19 @@ class HBNBCommand(cmd.Cmd):
 
         my_class = my_list[0]
         my_command = my_list[1][:my_list[1].find('(')]
-        
+
         rest_of_args = my_list[1][my_list[1].find('(')+1:my_list[1].find(')')]
         if len(rest_of_args) > 0:
             args = rest_of_args.replace(',', '')
             args = args.replace('"', '')
-        
+
             return my_class + ' ' + args
         else:
             return my_class
 
     def default(self, line):
         args = line.split('.')
-        if len(line) >= 2:
+        if len(args) >= 2 and args[1]:
             if args[1][:4] == "show":
                 self.do_show(self.clean_args(args))
 
@@ -205,9 +206,11 @@ class HBNBCommand(cmd.Cmd):
             elif args[1] == "all()":
                 self.do_all(args[0])
 
+            elif args[1] == "count()":
+                print(storage.count(args[0]))
+
             elif args[1][:6] == "update":
                 self.do_update(self.clean_args(args))
-
         else:
             cmd.Cmd.default(self, line)
 

@@ -31,6 +31,16 @@ class FileStorage:
 
         return self.__objects
 
+    def count(self, cls=None):
+        if cls is not None:
+            cls = eval(cls)
+            count = 0
+            for k, v in self.__objects.items():
+                if type(v) == cls:
+                    count += 1
+            return count
+        return 0
+
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         self.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
