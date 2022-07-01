@@ -32,6 +32,7 @@ class FileStorage:
         return self.__objects
 
     def count(self, cls=None):
+        """Counts how many instances exist"""
         if cls is not None:
             cls = eval(cls)
             count = 0
