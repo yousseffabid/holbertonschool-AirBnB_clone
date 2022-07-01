@@ -5,9 +5,17 @@ from models import *
 import unittest
 import os
 from datetime import datetime
+import uuid
 
 
 class Test_BaseModel(unittest.TestCase):
+    """testing BaseModel"""
+    def test_base_model_uuid_good_format(self):
+        """
+        Tests if UUID is in the correct format.
+        """
+        bm = BaseModel()
+        self.assertIsInstance(uuid.UUID(bm.id), uuid.UUID)
 
     def test_attributes(self):
         """Check for attributes."""
