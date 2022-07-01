@@ -15,11 +15,20 @@ class FileStorage:
     """class FileStorage that
     serializes instances to a JSON file and
     deserializes JSON file to instances"""
+
     __file_path = "file.json"
     __objects = dict()
 
-    def all(self):
+    def all(self, cls=None):
         """returns the dictionary __objects"""
+        if cls is not None:
+            cls = eval(cls)
+            cls_dict = {}
+            for k, v in self.__objects.items():
+                if type(v) == cls:
+                    cls_dict[k] = v
+            return cls_dict
+
         return self.__objects
 
     def new(self, obj):
