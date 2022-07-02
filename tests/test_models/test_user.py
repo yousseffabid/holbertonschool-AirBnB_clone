@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Test_user module"""
 from models.user import User
 from models import *
 import unittest
@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 class Test_User(unittest.TestCase):
+    """Test_user class"""
 
     def test_attributes(self):
         """Check for attributes."""

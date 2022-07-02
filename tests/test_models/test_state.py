@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Test_state module"""
 from models.state import State
 from models import *
 import unittest
@@ -8,6 +8,8 @@ from datetime import datetime
 
 
 class Test_State(unittest.TestCase):
+    """Test_state class"""
+
     def test_attributes(self):
         """Check for attributes."""
         s = State()

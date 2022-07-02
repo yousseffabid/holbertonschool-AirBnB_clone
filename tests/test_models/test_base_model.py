@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Test_BaseModel module"""
 from models.base_model import BaseModel
 from models import *
 import unittest
@@ -10,6 +10,7 @@ import uuid
 
 class Test_BaseModel(unittest.TestCase):
     """testing BaseModel"""
+
     def test_base_model_uuid_good_format(self):
         """
         Tests if UUID is in the correct format.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Test_Review module"""
 from models.review import Review
 from models import *
 import unittest
@@ -7,7 +7,8 @@ import os
 from datetime import datetime
 
 
-class Test_User(unittest.TestCase):
+class Test_Review(unittest.TestCase):
+    """Test_Review class"""
 
     def test_attributes(self):
         """Check for attributes."""

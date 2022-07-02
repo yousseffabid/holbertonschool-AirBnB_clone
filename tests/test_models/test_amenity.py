@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Test_Amenity module"""
 from models.amenity import Amenity
 from models import *
 import unittest
@@ -7,7 +7,8 @@ import os
 from datetime import datetime
 
 
-class Test_User(unittest.TestCase):
+class Test_Amenity(unittest.TestCase):
+    """Test_Amenity class"""
 
     def test_attributes(self):
         """Check for attributes."""

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Test_City module"""
 from models.city import City
 from models import *
 import unittest
@@ -7,7 +7,8 @@ from datetime import datetime
 import os
 
 
-class Test_User(unittest.TestCase):
+class Test_City(unittest.TestCase):
+    """Test_City class"""
 
     def test_attributes(self):
         """Check for attributes."""
