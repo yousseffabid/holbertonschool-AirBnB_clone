@@ -3,7 +3,7 @@
 import cmd
 import sys
 from models.base_model import BaseModel
-from models import storage, globalClasses
+from models import storage
 from models.engine.file_storage import FileStorage
 from models.user import User
 from models.state import State
@@ -12,6 +12,9 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from datetime import datetime
+
+globalClasses = ('BaseModel', 'User', 'State',
+                 'Amenity', 'City', 'Place', 'Review')
 
 
 class HBNBCommand(cmd.Cmd):
