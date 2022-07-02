@@ -20,11 +20,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         'Exits the HBNB console'
-        exit("")
+        return True
 
     def do_quit(self, arg):
         'Exits the HBNB console'
-        sys.exit("Thanks for using Hbnb Console")
+        return True
 
     def emptyline(self):
         """What happens if you put an empty line (Enter)"""
