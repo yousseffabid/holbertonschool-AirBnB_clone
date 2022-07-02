@@ -16,9 +16,7 @@ from datetime import datetime
 
 class HBNBCommand(cmd.Cmd):
     """console that contains the entry point of the command interpreter"""
-    intro = '-Welcome to the HBNB CLI Interface-\n'
-    prompt = '(hbnb) '
-    ruler = "="
+    prompt = '(hbnb)'
 
     def do_EOF(self, arg):
         'Exits the HBNB console'
